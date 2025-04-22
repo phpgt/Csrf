@@ -21,7 +21,7 @@ jobs:
           php_version: '8.1'
 
       - name: Archive build
-        run: mkdir /tmp/github-actions/ && tar -cvf /tmp/github-actions/build.tar ./
+        run: mkdir /tmp/github-actions/ && tar --exclude=".git" -cvf /tmp/github-actions/build.tar ./
 
       - name: Upload build archive for test runners
         uses: actions/upload-artifact@v2
