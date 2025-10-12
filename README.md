@@ -100,3 +100,9 @@ Alternatives to storing tokens on the session
 ---------------------------------------------
 
 The package includes an `ArrayTokenStore`, which can be stored on the session. You can implement alternative token stores such as a RDBMS or NoSQL by subclassing `TokenStore` and implementing the abstract methods.
+
+# Proudly sponsored by
+
+[JetBrains Open Source sponsorship program](https://www.jetbrains.com/community/opensource/)
+
+[![JetBrains logo.](https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg)](https://www.jetbrains.com/community/opensource/)
