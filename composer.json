@@ -10,8 +10,10 @@
 		"phpgt/session": "^v1.1"
 	},
 	"require-dev": {
-		"phpstan/phpstan": "^v1.8",
-		"phpunit/phpunit": "^v9.5"
+		"phpstan/phpstan": "^1.10",
+		"phpunit/phpunit": "^10.2",
+		"phpmd/phpmd": "^2.13",
+		"squizlabs/php_codesniffer": "^3.7"
 	},
 
 	"autoload": {
@@ -38,10 +40,23 @@
 		}
 	],
 
+	"scripts": {
+		"phpunit": "vendor/bin/phpunit --configuration phpunit.xml",
+		"phpstan": "vendor/bin/phpstan analyse --level 6 src --memory-limit 256M",
+		"phpcs": "vendor/bin/phpcs src --standard=phpcs.xml",
+		"phpmd": "vendor/bin/phpmd src/ text phpmd.xml",
+		"test": [
+			"@phpunit",
+			"@phpstan",
+			"@phpcs",
+			"@phpmd"
+		]
+	},
+
 	"funding": [
 		{
 			"type": "github",
-			"url": "https://github.com/sponsors/PhpGt"
+			"url": "https://github.com/sponsors/phpgt"
 		}
 	]
 }
