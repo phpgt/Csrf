@@ -1,7 +1,7 @@
 <?php
 namespace Gt\Csrf;
 
-use Gt\Dom\HTMLDocument;
+use GT\Dom\HTMLDocument;
 
 class HTMLDocumentProtector {
 	/**
@@ -138,7 +138,9 @@ class HTMLDocumentProtector {
 	 * want to access the html as a string call the HTMLDocument->saveHTML()
 	 * method.
 	 */
+	// phpcs:disable Generic.NamingConventions.CamelCapsFunctionName
 	public function getHTMLDocument():HTMLDocument {
 		return $this->document;
 	}
+	// phpcs:enable Generic.NamingConventions.CamelCapsFunctionName
 }

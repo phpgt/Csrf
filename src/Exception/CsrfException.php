@@ -5,10 +5,12 @@ use Exception;
 use RuntimeException;
 
 class CsrfException extends RuntimeException {
+
+// phpcs:ignore Generic.CodeAnalysis.UselessOverridingMethod
 	public function __construct(
 		string $message,
 		int $code = 403,
-		Exception $previous = null
+		?Exception $previous = null
 	) {
 		parent::__construct(
 			$message,

@@ -20,7 +20,7 @@ abstract class TokenStore {
 	 *
 	 * @see static::DEFAULT_MAX_TOKENS
 	 */
-	public function __construct(int $maxTokens = null) {
+	public function __construct(?int $maxTokens = null) {
 		if(!is_null($maxTokens)) {
 			$this->maxTokens = $maxTokens;
 		}
