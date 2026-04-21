@@ -18,12 +18,13 @@
 
 	"autoload": {
 		"psr-4": {
+			"GT\\Csrf\\": "./src",
 			"Gt\\Csrf\\": "./src"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Gt\\Csrf\\Test\\": "./test/phpunit"
+			"GT\\Csrf\\Test\\": "./test/phpunit"
 		}
 	},
 

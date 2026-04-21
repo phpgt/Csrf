@@ -1,10 +1,10 @@
 <?php
-namespace Gt\Csrf\Test;
+namespace GT\Csrf\Test;
 
 use Exception;
-use Gt\Csrf\Exception\CsrfTokenInvalidException;
-use Gt\Csrf\Exception\CsrfTokenSpentException;
-use Gt\Csrf\SessionTokenStore;
+use GT\Csrf\Exception\CsrfTokenInvalidException;
+use GT\Csrf\Exception\CsrfTokenSpentException;
+use GT\Csrf\SessionTokenStore;
 use Gt\Session\SessionStore;
 use PHPUnit\Framework\TestCase;
 

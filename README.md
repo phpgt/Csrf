@@ -18,7 +18,7 @@ This library handles [CSRF protection](https://www.owasp.org/index.php/Cross-Sit
     <img src="https://badge.status.php.gt/csrf-version.svg" alt="Current version" />
 </a>
 <a href="http://www.php.gt/csrf" target="_blank">
-	<img src="https://badge.status.php.gt/csrf-docs.svg" alt="PHP.Gt/Csrf documentation" />
+	<img src="https://badge.status.php.gt/csrf-docs.svg" alt="PHP.GT/Csrf documentation" />
 </a>
 
 Usage: Protection in Three Steps
@@ -36,7 +36,7 @@ Each is just a single method call, but you need to set up first.
 Start by creating the TokenStore. There are currently two implementations — the `ArrayTokenStore` and `SessionTokenStore`.  The `ArrayTokenStore` is the most basic and does not persist in any way, but can be extended into custom integrations. The `SessionTokenStore` is an inbuilt implementation that persists tokens between requests, so that tokens generated for one page request can be checked on another. The easiest way to add CSRF protection is to use the Session:
 
 ```php
-use Gt\Csrf\SessionTokenStore;
+use GT\Csrf\SessionTokenStore;
 
 // $session is an object-oriented representation of $_SESSION
 // that implements the Gt\Session\SessionContainer Interface.
@@ -48,13 +48,13 @@ $tokenStore = new SessionTokenStore($session);
 Before running any other code (especially things that could affect data), you should check to make sure that there's a valid CSRF token in place if it's needed:
 
 ```php
-use Gt\Csrf\Exception\CSRFException;
+use GT\Csrf\Exception\CsrfException;
 
 if(this_is_a_post_request()) {
 	try {
 		$tokenStore->verify();
 	}
-	catch(CSRFException $e) {
+	catch(CsrfException $e) {
 // Stop processing this request and get out of there!
 	}
 }
@@ -67,7 +67,7 @@ If the request contains a POST and there is no valid CSRF token, a `CSRFExceptio
 Finally, once you've finished processing your html code and it's ready to send back to the client, you should inject the CSRF tokens. If you don't, the request will fail to pass Step 2 when the page gets submitted!
 
 ```php
-use Gt\Csrf\HTMLDocumentProtector;
+use GT\Csrf\HTMLDocumentProtector;
 
 // The html can come in as anything accepted by Gt\Dom\HTMLDocument - here it's a
 // plain string in a variable.

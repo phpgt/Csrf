@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Csrf\Exception;
+namespace GT\Csrf\Exception;
 
 use Exception;
 use RuntimeException;

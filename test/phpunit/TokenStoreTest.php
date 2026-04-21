@@ -1,13 +1,13 @@
 <?php
-namespace Gt\Csrf\Test;
+namespace GT\Csrf\Test;
 
 use Exception;
-use Gt\Csrf\ArrayTokenStore;
-use Gt\Csrf\Exception\CsrfException;
-use Gt\Csrf\Exception\CsrfTokenInvalidException;
-use Gt\Csrf\Exception\CsrfTokenMissingException;
-use Gt\Csrf\Exception\CsrfTokenSpentException;
-use Gt\Csrf\HTMLDocumentProtector;
+use GT\Csrf\ArrayTokenStore;
+use GT\Csrf\Exception\CsrfException;
+use GT\Csrf\Exception\CsrfTokenInvalidException;
+use GT\Csrf\Exception\CsrfTokenMissingException;
+use GT\Csrf\Exception\CsrfTokenSpentException;
+use GT\Csrf\HTMLDocumentProtector;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 

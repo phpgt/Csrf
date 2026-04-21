@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Csrf;
+namespace GT\Csrf;
 
-use Gt\Csrf\Exception\CsrfTokenInvalidException;
-use Gt\Csrf\Exception\CsrfTokenSpentException;
+use GT\Csrf\Exception\CsrfTokenInvalidException;
+use GT\Csrf\Exception\CsrfTokenSpentException;
 use Gt\Session\SessionContainer;
 
 class SessionTokenStore extends TokenStore {

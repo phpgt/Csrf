@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Csrf;
+namespace GT\Csrf;
 
-use Gt\Csrf\Exception\CsrfTokenInvalidException;
-use Gt\Csrf\Exception\CsrfTokenSpentException;
+use GT\Csrf\Exception\CsrfTokenInvalidException;
+use GT\Csrf\Exception\CsrfTokenSpentException;
 
 /**
  * NOTE that if this implementation is going to work across web requests, it must be stored on the

@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Csrf;
+namespace GT\Csrf;
 
 use GT\Dom\HTMLDocument;
 
