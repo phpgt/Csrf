@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Csrf;
+namespace GT\Csrf;
 
-use Gt\Csrf\Exception\CsrfTokenInvalidException;
-use Gt\Csrf\Exception\CsrfTokenSpentException;
+use GT\Csrf\Exception\CsrfTokenInvalidException;
+use GT\Csrf\Exception\CsrfTokenSpentException;
 
 /**
  * NOTE that if this implementation is going to work across web requests, it must be stored on the
@@ -12,14 +12,12 @@ class ArrayTokenStore extends TokenStore {
 	/** @var array<string, ?int> */
 	private array $arrayStore = [];
 
-	public function __construct(int $maxTokens = null) {
-		parent::__construct($maxTokens);
-	}
-
 	public function saveToken(string $token):void {
 		$this->arrayStore[$token] = null;
-		while(count($this->arrayStore) > $this->maxTokens) {
+		$tokenCount = count($this->arrayStore);
+		while($tokenCount > $this->maxTokens) {
 			array_shift($this->arrayStore);
+			$tokenCount--;
 		}
 	}
 

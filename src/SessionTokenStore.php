@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Csrf;
+namespace GT\Csrf;
 
-use Gt\Csrf\Exception\CsrfTokenInvalidException;
-use Gt\Csrf\Exception\CsrfTokenSpentException;
+use GT\Csrf\Exception\CsrfTokenInvalidException;
+use GT\Csrf\Exception\CsrfTokenSpentException;
 use Gt\Session\SessionContainer;
 
 class SessionTokenStore extends TokenStore {
@@ -12,7 +12,7 @@ class SessionTokenStore extends TokenStore {
 
 	public function __construct(
 		SessionContainer $session,
-		int $maxTokens = null
+		?int $maxTokens = null
 	) {
 		$this->session = $session;
 		parent::__construct($maxTokens);
@@ -22,8 +22,10 @@ class SessionTokenStore extends TokenStore {
 		$tokenList = $this->session->get(self::SESSION_KEY) ?? [];
 		$tokenList[$token] = null;
 
-		while(count($tokenList) > $this->getMaxTokens()) {
+		$tokenCount = count($tokenList);
+		while($tokenCount > $this->getMaxTokens()) {
 			array_shift($tokenList);
+			$tokenCount--;
 		}
 
 		$this->session->set(self::SESSION_KEY, $tokenList);

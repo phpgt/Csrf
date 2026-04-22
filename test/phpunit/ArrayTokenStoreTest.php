@@ -1,10 +1,10 @@
 <?php
-namespace Gt\Csrf\Test;
+namespace GT\Csrf\Test;
 
 use Exception;
-use Gt\Csrf\ArrayTokenStore;
-use Gt\Csrf\Exception\CsrfTokenInvalidException;
-use Gt\Csrf\Exception\CsrfTokenSpentException;
+use GT\Csrf\ArrayTokenStore;
+use GT\Csrf\Exception\CsrfTokenInvalidException;
+use GT\Csrf\Exception\CsrfTokenSpentException;
 use PHPUnit\Framework\TestCase;
 
 class ArrayTokenStoreTest extends TestCase {

@@ -1,16 +1,16 @@
-Contributing to a PHP.Gt repository
+Contributing to a PHP.GT repository
 ===================================
 
-🙌 🎉 Firstly, **thank you!** 🎉 🙌 If you're reading this, you're probably interested in contributing to a PHP.Gt repository in some way. Thank you for showing interest and taking the time to read this document.
+🙌 🎉 Firstly, **thank you!** 🎉 🙌 If you're reading this, you're probably interested in contributing to a PHP.GT repository in some way. Thank you for showing interest and taking the time to read this document.
 
-All PHP.Gt repositories are community-driven projects. Your participation in the growth and development of the projects is highly welcomed. We strive to be as inclusive as possible.
+All PHP.GT repositories are community-driven projects. Your participation in the growth and development of the projects is highly welcomed. We strive to be as inclusive as possible.
 
 What do you need to know before you get started?
 ------------------------------------------------
 
-Code within the PHP.Gt organisation is split over different repositories. The first thing to know is how the respositories are broken up and where your issue/idea/bug/feature/question is for.
+Code within the PHP.GT organisation is split over different repositories. The first thing to know is how the respositories are broken up and where your issue/idea/bug/feature/question is for.
 
-[WebEngine](https://php.gt/webengine) is the main project that is used to build web applications, and depends on all other PHP.Gt repositories. Core responsibilities of this project include web routing, the request/response lifecycle, Page Logic classes and the "go" functions.
+[WebEngine](https://php.gt/webengine) is the main project that is used to build web applications, and depends on all other PHP.GT repositories. Core responsibilities of this project include web routing, the request/response lifecycle, Page Logic classes and the "go" functions.
 
 You may want to contribute on the components that make up the WebEngine. The main components include:
 
@@ -26,7 +26,7 @@ Ways you can help
 
 ### Do you have a question?
 
-If you have a question about using a part of PHP.Gt, or are having an issue getting something to work, the best place to ask your question is on Stack Overflow. Tag your question with `phpgt` and the repository you are using (such as `phpgt-webengine` or `phpgt-dom`), and a core contributor will answer your question as quickly as possible.
+If you have a question about using a part of PHP.GT, or are having an issue getting something to work, the best place to ask your question is on Stack Overflow. Tag your question with `phpgt` and the repository you are using (such as `phpgt-webengine` or `phpgt-dom`), and a core contributor will answer your question as quickly as possible.
 
 ### Identify a bug and submit an issue
 
@@ -64,10 +64,10 @@ If you are looking for a project to contribute to, we promote the use of "good f
 
 "Help wanted" is assigned to issues that are well defined, are not too complex, and have an obvious scope. These issues are intended to be accessible to coders who are familiar with the process of submitting pull requests, but help is still available where needed.
 
-+ [Good first issues within PHP.Gt][good-first-issues]
-+ [Help wanted issues within PHP.Gt][help-wanted-issues]
++ [Good first issues within PHP.GT][good-first-issues]
++ [Help wanted issues within PHP.GT][help-wanted-issues]
 
-**It is the main priority of the PHP.Gt organisation to be as inclusive as possible and help everyone contribute code**. Our pledge is to provide mentorship to anyone who shows an interest on an issue labelled "good first issue", as the most important thing to the organisation is a thriving, inclusive community.
+**It is the main priority of the PHP.GT organisation to be as inclusive as possible and help everyone contribute code**. Our pledge is to provide mentorship to anyone who shows an interest on an issue labelled "good first issue", as the most important thing to the organisation is a thriving, inclusive community.
 
 #### How to make a change to the code
 
@@ -78,11 +78,11 @@ Once you've identified what you want to contribute to, the process of making a c
 2. Preferably, write a unit test to cover your contribution.
 3. Make the changes to the code.
 4. [Commit and push](https://help.github.com/articles/adding-a-file-to-a-repository-using-the-command-line/) your changes back to your forked repository.
-5. [Submit a pull request](https://help.github.com/articles/creating-a-pull-request/) to the original repository at PHP.Gt.
+5. [Submit a pull request](https://help.github.com/articles/creating-a-pull-request/) to the original repository at PHP.GT.
 
 #### Submitting a pull request (PR)
 
-Assuming you have made a fork of a PHP.Gt repository, and pushed your changes to the fork:
+Assuming you have made a fork of a PHP.GT repository, and pushed your changes to the fork:
 
 1. On Github, go to your forked repository.
 2. Using the branch selection menu, select the branch that your changes are on.
@@ -95,13 +95,13 @@ Creating a PR will allow contributors to discuss the changes, review the code an
 
 ### Improve documentation
 
-Documentation for all PHP.Gt repositories is stored in each repository's Github Wiki, which is used to populate the website at www.php.gt .
+Documentation for all PHP.GT repositories is stored in each repository's Github Wiki, which is used to populate the website at www.php.gt .
 
 As with all wikis, the wiki is open to edit by any registered Github user. Changes will be reviewed for quality over time, but there is no formal pull request process in place to make changes to the wiki.
 
 ### Financial contributions
 
-PHP.Gt is open source and free, and always will be. If you are interested in sponsoring the development of PHP.Gt, [please send an email to sponsors@php.gt](mailto:sponsors@php.gt) for more information.
+PHP.GT is open source and free, and always will be. If you are interested in sponsoring the development of PHP.GT, [please send an email to sponsors@php.gt](mailto:sponsors@php.gt) for more information.
 
 Coding style guide
 ------------------
@@ -113,9 +113,9 @@ Test driven development (TDD)
 
 TDD is a programming methodology where the developer writes the tests for their code before the code itself is written. [Read about TDD on Wikipedia](https://en.wikipedia.org/wiki/Test-driven_development). It should not be seen as a holy grail of software development, but it is useful practice.
 
-All repositories within PHP.Gt aim to maintain tests that cover 100% of the codebase. Again, this should not be seen as a method of writing perfect code, but it too is useful practice.
+All repositories within PHP.GT aim to maintain tests that cover 100% of the codebase. Again, this should not be seen as a method of writing perfect code, but it too is useful practice.
 
-When contributing to PHP.Gt, please be conscious of the test coverage you are affecting, and aim to write tests that cover any functionality you contribute to. Feel free to ask for help writing tests in the issue tracker and a contributor will do their best in assisting you.
+When contributing to PHP.GT, please be conscious of the test coverage you are affecting, and aim to write tests that cover any functionality you contribute to. Feel free to ask for help writing tests in the issue tracker and a contributor will do their best in assisting you.
 
 [good-first-issues]: https://github.com/search?l=&q=org%3Aphpgt+type%3Aissue+is%3Aopen+label%3A%22good+first+issue%22&ref=advsearch&type=Issues&utf8=%E2%9C%93
 [help-wanted-issues]: https://github.com/search?l=&q=org%3Aphpgt+type%3Aissue+is%3Aopen+label%3A%22help-wanted%22&ref=advsearch&type=Issues&utf8=%E2%9C%93

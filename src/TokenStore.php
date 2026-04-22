@@ -1,9 +1,9 @@
 <?php
-namespace Gt\Csrf;
+namespace GT\Csrf;
 
-use Gt\Csrf\Exception\CsrfTokenInvalidException;
-use Gt\Csrf\Exception\CsrfTokenMissingException;
-use Gt\Csrf\Exception\CsrfTokenSpentException;
+use GT\Csrf\Exception\CsrfTokenInvalidException;
+use GT\Csrf\Exception\CsrfTokenMissingException;
+use GT\Csrf\Exception\CsrfTokenSpentException;
 
 /**
  * Extend this base class to create a store for CSRF tokens. The core functionality of generating
@@ -20,7 +20,7 @@ abstract class TokenStore {
 	 *
 	 * @see static::DEFAULT_MAX_TOKENS
 	 */
-	public function __construct(int $maxTokens = null) {
+	public function __construct(?int $maxTokens = null) {
 		if(!is_null($maxTokens)) {
 			$this->maxTokens = $maxTokens;
 		}
