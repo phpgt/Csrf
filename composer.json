@@ -6,8 +6,9 @@
 
 	"require": {
 		"php": ">=8.1",
-		"phpgt/dom": "^v4.0",
-		"phpgt/session": "^v1.1"
+		"phpgt/dom": "^4.0",
+		"phpgt/session": "^1.1",
+		"phpgt/ulid": "^1.2"
 	},
 	"require-dev": {
 		"phpstan/phpstan": "^1.10",
