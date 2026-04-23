@@ -8,10 +8,10 @@ This library handles [CSRF protection](https://www.owasp.org/index.php/Cross-Sit
 <a href="https://github.com/PhpGt/Csrf/actions" target="_blank">
     <img src="https://badge.status.php.gt/csrf-build.svg" alt="Build status" />
 </a>
-<a href="https://scrutinizer-ci.com/g/PhpGt/Csrf" target="_blank">
+<a href="https://app.codacy.com/gh/PhpGt/Csrf" target="_blank">
     <img src="https://badge.status.php.gt/csrf-quality.svg" alt="Code quality" />
 </a>
-<a href="https://scrutinizer-ci.com/g/PhpGt/Csrf" target="_blank">
+<a href="https://app.codecov.io/gh/PhpGt/Csrf" target="_blank">
     <img src="https://badge.status.php.gt/csrf-coverage.svg" alt="Code coverage" />
 </a>
 <a href="https://packagist.org/packages/PhpGt/Csrf" target="_blank">
@@ -85,7 +85,7 @@ echo $protector->getHTMLDocument();
 Using tokens of a different lengths
 -----------------------------------
 
-By default, 32 character tokens are generated. They use characters from the set [a-zA-Z0-9], meaning a 64-bit token which would take a brute-force attacker making 100,000 requests per second around 2.93 million years to guess. If this seems either excessive or inadequate you can change the token length using `TokenStore::setTokenLength()`.
+By default, tokens are generated as ULIDs with the prefix `CSRF_`. The configured token length refers to the ULID portion, which is 32 characters long by default in this package. The full token string length is therefore the configured token length plus the length of the prefix `CSRF_`.
 
 Special note about client-side requests
 ---------------------------------------

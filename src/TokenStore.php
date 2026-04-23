@@ -4,6 +4,7 @@ namespace GT\Csrf;
 use GT\Csrf\Exception\CsrfTokenInvalidException;
 use GT\Csrf\Exception\CsrfTokenMissingException;
 use GT\Csrf\Exception\CsrfTokenSpentException;
+use GT\Ulid\Ulid;
 
 /**
  * Extend this base class to create a store for CSRF tokens. The core functionality of generating
@@ -14,11 +15,9 @@ abstract class TokenStore {
 	protected int $tokenLength = 32;
 
 	/**
-	 * An optional limit of the number of valid tokens the TokenStore will retain may be passed.
-	 * If not specified, an unlimited number of tokens will be retained (which is probably
-	 * fine unless you have a very, very busy site with long-running sessions).
+	 * Optionally configure how many valid tokens the store will retain.
 	 *
-	 * @see static::DEFAULT_MAX_TOKENS
+	 * If not specified, the default limit is 1000 tokens.
 	 */
 	public function __construct(?int $maxTokens = null) {
 		if(!is_null($maxTokens)) {
@@ -31,9 +30,9 @@ abstract class TokenStore {
 	}
 
 	/**
-	 * Specify that tokens of a different length should be generated.
+	 * Specify the length of the ULID portion of generated tokens.
 	 *
-	 * @see static::DEFAULT_MAX_TOKENS
+	 * The full token string will also include the "CSRF_" prefix.
 	 */
 	public function setTokenLength(int $newTokenLength):void {
 		$this->tokenLength = $newTokenLength;
@@ -41,12 +40,15 @@ abstract class TokenStore {
 
 	/**
 	 * Generate a new token. NOTE: This method does NOT store the token.
+	 *
+	 * The generated token is a prefixed ULID, so the full string length is
+	 * the configured token length plus the length of "CSRF_".
 	 */
 	public function generateNewToken():string {
-// This function uses PHP 7.2's inbuilt random_bytes function, which generates
-// raw bytes. When converted to hex, each byte is represented by two
-// characters, hence why we divide the token length by two.
-		return bin2hex(random_bytes($this->tokenLength / 2));
+		return new Ulid(
+			prefix: "CSRF",
+			length: $this->tokenLength,
+		);
 	}
 
 	/**

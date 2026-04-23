@@ -148,12 +148,17 @@ class TokenStoreTest extends TestCase {
 
 	public function testSaveToken_tokenLengthChange():void {
 		$sut = new ArrayTokenStore();
-		$sut->setTokenLength(6);
+		$tokenLength = 16;
+		$sut->setTokenLength($tokenLength);
 
 		$token = $sut->generateNewToken();
-		self::assertEquals(6, strlen($token));
+		self::assertStringStartsWith("CSRF_", $token);
+		self::assertEquals(
+			strlen("CSRF_") + $tokenLength,
+			strlen($token)
+		);
 
-// now make sure the shorter token is successfully stored
+	// now make sure the custom-length token is successfully stored
 		$sut->saveToken($token);
 
 		$exception = null;
@@ -164,5 +169,15 @@ class TokenStoreTest extends TestCase {
 		catch(Exception $exception) {}
 
 		self::assertNull($exception);
+	}
+
+	public function testGenerateNewToken_usesCsrfUlidPrefix():void {
+		$sut = new ArrayTokenStore();
+		$token = $sut->generateNewToken();
+		self::assertStringStartsWith("CSRF_", $token);
+		self::assertSame(
+			strlen("CSRF_") + 32,
+			strlen($token)
+		);
 	}
 }
