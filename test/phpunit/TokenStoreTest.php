@@ -5,6 +5,7 @@ use Exception;
 use GT\Csrf\ArrayTokenStore;
 use GT\Csrf\Exception\CsrfException;
 use GT\Csrf\Exception\CsrfTokenInvalidException;
+use GT\Csrf\Exception\CsrfTokenMalformedException;
 use GT\Csrf\Exception\CsrfTokenMissingException;
 use GT\Csrf\Exception\CsrfTokenSpentException;
 use GT\Csrf\HTMLDocumentProtector;
@@ -60,6 +61,16 @@ class TokenStoreTest extends TestCase {
 		$post[HTMLDocumentProtector::TOKEN_NAME] = "12321";
 		$sut = new ArrayTokenStore();
 		$this->expectException(CSRFTokenInvalidException::class);
+		$sut->verify($post);
+	}
+
+	/** POST request received with token present, but not as a string */
+	public function testVerify_invalidTokenType():void {
+		$post = [];
+		$post["doink"] = "binky";
+		$post[HTMLDocumentProtector::TOKEN_NAME] = 123;
+		$sut = new ArrayTokenStore();
+		$this->expectException(CsrfTokenMalformedException::class);
 		$sut->verify($post);
 	}
 

@@ -2,6 +2,7 @@
 namespace GT\Csrf;
 
 use GT\Csrf\Exception\CsrfTokenInvalidException;
+use GT\Csrf\Exception\CsrfTokenMalformedException;
 use GT\Csrf\Exception\CsrfTokenMissingException;
 use GT\Csrf\Exception\CsrfTokenSpentException;
 use GT\Ulid\Ulid;
@@ -55,11 +56,13 @@ abstract class TokenStore {
 	 * If a $_POST global exists, check that it contains a token and that the token is valid.
 	 * The name the token is stored-under is contained in HTMLDocumentProtector::TOKEN_NAME.
 	 *
-	 * @param array<string, int>|object $postData
+	 * @param array<string, mixed>|object $postData
 	 * @throws CsrfTokenMissingException There's a $_POST request present but no
 	 * token present
 	 * @throws CsrfTokenInvalidException There's a token included on the $_POST,
-	 * but its value is invalid.
+	 * but its value is not known to the store.
+	 * @throws CsrfTokenMalformedException There's a token included on the
+	 * $_POST, but it is not a string.
 	 * @throws CsrfTokenSpentException  There's a token included on the
 	 * $_POST but it has already been consumed by a previous request.
 	 * @see TokenStore::verifyToken().
@@ -72,12 +75,18 @@ abstract class TokenStore {
 		}
 
 		if(!empty($postData)) {
-			if(!isset($postData[HTMLDocumentProtector::TOKEN_NAME])) {
+			$token = $postData[HTMLDocumentProtector::TOKEN_NAME] ?? null;
+
+			if(!isset($token)) {
 				throw new CsrfTokenMissingException();
 			}
 
-			$this->verifyToken($postData[HTMLDocumentProtector::TOKEN_NAME]);
-			$this->consumeToken($postData[HTMLDocumentProtector::TOKEN_NAME]);
+			if(!is_string($token)) {
+				throw new CsrfTokenMalformedException();
+			}
+
+			$this->verifyToken($token);
+			$this->consumeToken($token);
 		}
 	}
 
