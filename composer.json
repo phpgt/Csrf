@@ -11,7 +11,7 @@
 		"phpgt/ulid": "^1.2"
 	},
 	"require-dev": {
-		"phpstan/phpstan": "^1.10",
+		"phpstan/phpstan": "^1.10 || ^2.0",
 		"phpunit/phpunit": "^10.2",
 		"phpmd/phpmd": "^2.13",
 		"squizlabs/php_codesniffer": "^3.7"
