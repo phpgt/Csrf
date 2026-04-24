@@ -75,7 +75,7 @@ abstract class TokenStore {
 		}
 
 		if(!empty($postData)) {
-            $token = $postData[HTMLDocumentProtector::TOKEN_NAME] ?? null;
+			$token = $postData[HTMLDocumentProtector::TOKEN_NAME] ?? null;
 
 			if(!isset($token)) {
 				throw new CsrfTokenMissingException();
