@@ -3,7 +3,7 @@ namespace GT\Csrf\Test;
 
 use GT\Csrf\ArrayTokenStore;
 use GT\Csrf\HTMLDocumentProtector;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\HTMLDocument;
 use PHPUnit\Framework\TestCase;
 
 class HTMLDocumentProtectorTest extends TestCase {

@@ -3,7 +3,7 @@ namespace GT\Csrf;
 
 use GT\Csrf\Exception\CsrfTokenInvalidException;
 use GT\Csrf\Exception\CsrfTokenSpentException;
-use Gt\Session\SessionContainer;
+use GT\Session\SessionContainer;
 
 class SessionTokenStore extends TokenStore {
 	const SESSION_KEY = "tokenList";

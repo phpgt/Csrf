@@ -5,7 +5,7 @@ use Exception;
 use GT\Csrf\Exception\CsrfTokenInvalidException;
 use GT\Csrf\Exception\CsrfTokenSpentException;
 use GT\Csrf\SessionTokenStore;
-use Gt\Session\SessionStore;
+use GT\Session\SessionStore;
 use PHPUnit\Framework\TestCase;
 
 class SessionTokenStoreTest extends TestCase {

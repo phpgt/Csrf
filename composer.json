@@ -6,8 +6,8 @@
 
 	"require": {
 		"php": ">=8.1",
-		"phpgt/dom": "^4.0",
-		"phpgt/session": "^1.1",
+		"phpgt/dom": "^4.2",
+		"phpgt/session": "^1.2",
 		"phpgt/ulid": "^1.2"
 	},
 	"require-dev": {
