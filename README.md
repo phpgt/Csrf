@@ -52,13 +52,15 @@ use GT\Csrf\Exception\CsrfException;
 
 if(this_is_a_post_request()) {
 	try {
-		$tokenStore->verify();
+		$tokenStore->verify($_POST);
 	}
 	catch(CsrfException $e) {
 // Stop processing this request and get out of there!
 	}
 }
 ```
+
+Call `verify()` only for requests that require CSRF protection. Empty and file-only POST requests must also contain a valid token.
 
 If the request contains a POST and there is no valid CSRF token, a `CSRFException` will be thrown — so you should plan to catch it.  Remember, if that happens, the request was fraudulent, so you shouldn't process it!
 

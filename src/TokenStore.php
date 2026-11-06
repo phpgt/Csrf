@@ -53,7 +53,8 @@ abstract class TokenStore {
 	}
 
 	/**
-	 * If a $_POST global exists, check that it contains a token and that the token is valid.
+	 * Require a valid token whenever verification is requested.
+	 * Call this only for requests that require CSRF protection, including empty POST requests.
 	 * The name the token is stored-under is contained in HTMLDocumentProtector::TOKEN_NAME.
 	 *
 	 * @param array<string, mixed>|object $postData
@@ -74,20 +75,18 @@ abstract class TokenStore {
 			$postData = call_user_func([$postData, "asArray"]);
 		}
 
-		if(!empty($postData)) {
-			$token = $postData[HTMLDocumentProtector::TOKEN_NAME] ?? null;
+		$token = $postData[HTMLDocumentProtector::TOKEN_NAME] ?? null;
 
-			if(!isset($token)) {
-				throw new CsrfTokenMissingException();
-			}
-
-			if(!is_string($token)) {
-				throw new CsrfTokenMalformedException();
-			}
-
-			$this->verifyToken($token);
-			$this->consumeToken($token);
+		if(!isset($token)) {
+			throw new CsrfTokenMissingException();
 		}
+
+		if(!is_string($token)) {
+			throw new CsrfTokenMalformedException();
+		}
+
+		$this->verifyToken($token);
+		$this->consumeToken($token);
 	}
 
 	/**
