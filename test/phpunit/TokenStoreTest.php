@@ -32,17 +32,22 @@ class TokenStoreTest extends TestCase {
 		</html>
 		HTML;
 
-	/** no post request received */
-	public function testVerify_noPost():void {
-		$exception = null;
+	/** Empty and file-only POST requests still require a token. */
+	public function testVerify_emptyPost():void {
+		$sut = new ArrayTokenStore();
+		$this->expectException(CsrfTokenMissingException::class);
+		$sut->verify([]);
+	}
 
-		try {
-			$sut = new ArrayTokenStore();
-			$sut->verify([]);
-		}
-		catch(CsrfException $exception) {}
-
-		self::assertNull($exception);
+	public function testVerify_emptyPostObject():void {
+		$post = new class {
+			public function asArray():array {
+				return [];
+			}
+		};
+		$sut = new ArrayTokenStore();
+		$this->expectException(CsrfTokenMissingException::class);
+		$sut->verify($post);
 	}
 
 	/** POST request received but without a token */
